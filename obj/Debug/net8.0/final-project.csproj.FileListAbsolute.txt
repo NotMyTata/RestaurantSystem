@@ -1,0 +1,15 @@
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\bin\Debug\net8.0\final-project.exe
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\bin\Debug\net8.0\final-project.deps.json
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\bin\Debug\net8.0\final-project.runtimeconfig.json
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\bin\Debug\net8.0\final-project.dll
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\bin\Debug\net8.0\final-project.pdb
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.AssemblyInfoInputs.cache
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.AssemblyInfo.cs
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.csproj.CoreCompileInputs.cache
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.dll
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\refint\final-project.dll
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.pdb
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.genruntimeconfig.cache
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\ref\final-project.dll
+C:\Users\Sasmita\Documents\vs22\StrukDat\final-project\obj\Debug\net8.0\final-project.sourcelink.json

@@ -1,0 +1,110 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|c:\\users\\sasmita\\documents\\vs22\\strukdat\\final-project\\mainui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|solutionrelative:mainui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|c:\\users\\sasmita\\documents\\vs22\\strukdat\\final-project\\menulist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|solutionrelative:menulist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|c:\\users\\sasmita\\documents\\vs22\\strukdat\\final-project\\orderqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|solutionrelative:orderqueue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|c:\\users\\sasmita\\documents\\vs22\\strukdat\\final-project\\receipthistorylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|solutionrelative:receipthistorylist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|c:\\users\\sasmita\\documents\\vs22\\strukdat\\final-project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA8CB4ED-1977-404C-B861-8B0154B84780}|final-project.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainUI.cs",
+              "DocumentMoniker": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\MainUI.cs",
+              "RelativeDocumentMoniker": "MainUI.cs",
+              "ToolTip": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\MainUI.cs",
+              "RelativeToolTip": "MainUI.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAwwDcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T04:43:00.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MenuList.cs",
+              "DocumentMoniker": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\MenuList.cs",
+              "RelativeDocumentMoniker": "MenuList.cs",
+              "ToolTip": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\MenuList.cs",
+              "RelativeToolTip": "MenuList.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T16:21:53.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReceiptHistoryList.cs",
+              "DocumentMoniker": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\ReceiptHistoryList.cs",
+              "RelativeDocumentMoniker": "ReceiptHistoryList.cs",
+              "ToolTip": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\ReceiptHistoryList.cs",
+              "RelativeToolTip": "ReceiptHistoryList.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T16:16:32.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderQueue.cs",
+              "DocumentMoniker": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\OrderQueue.cs",
+              "RelativeDocumentMoniker": "OrderQueue.cs",
+              "ToolTip": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\OrderQueue.cs",
+              "RelativeToolTip": "OrderQueue.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T15:54:12.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Sasmita\\Documents\\vs22\\StrukDat\\final-project\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T15:48:58.604Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
