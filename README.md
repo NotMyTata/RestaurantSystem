@@ -10,7 +10,7 @@
 
 1. Clone repositori project `ResturantSystem` ke direktori lokal git Anda.
 2. Pergi ke dalam direktori `RestaurantSystem\bin\Debug\net8.0`.
-3. Tekan file *.exe.
+3. Buka file *.exe.
 
 ## Cara membuka project menggunakan Visual Studio
 
