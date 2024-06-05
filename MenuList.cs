@@ -4,15 +4,27 @@ namespace final_project
 {
     internal class MenuList
     {
-        private MenuNode head, tail;
+        static private MenuNode head, tail;
 
         internal MenuList()
         {
             head = null;
             tail = null;
+            DefaultMenu();
         }
 
-        internal void Add(string name, double price, double cost)
+        static internal void DefaultMenu()
+        {
+            List<string> name = new List<string> {"Nasi Goreng", "Ayam Bakar", "Bakso", "Soto Ayam", "Mie Goreng"};
+            List<double> price = new List<double> {15000, 18000, 14000, 16000, 11000};
+            List<double> cost = new List<double> {8000, 10000, 6000, 7000, 4000};
+            for (int i = 0; i < name.Count; i++)
+            {
+                Add(name[i], price[i], cost[i]);
+            }
+        }
+
+        static internal void Add(string name, double price, double cost)
         {
             var newNode = new MenuNode(name, price, cost);
             if (head == null)
@@ -26,10 +38,9 @@ namespace final_project
                 newNode.prev = tail;
                 tail = newNode;
             }
-            Console.WriteLine("-------- Menu has been ADDED --------");
         }
 
-        internal void Remove(string name)
+        static internal void Remove(string name)
         {
             var cur = head;
             while (cur != null)
@@ -45,7 +56,7 @@ namespace final_project
             Console.WriteLine("-------- Menu FAILED to REMOVE --------");
         }
 
-        internal MenuNode Find(string name)
+        static internal MenuNode Find(string name)
         {
             var cur = head;
             while (cur != null)
@@ -60,14 +71,57 @@ namespace final_project
             return null;
         }
 
-        internal void ListAll()
+        static internal bool Contains(string menu)
         {
             var cur = head;
+            while (cur != null)
+            {
+                if (cur.name == menu)
+                {
+                    return true;
+                }
+                cur = cur.next;
+            }
+            return false;
+        }
+
+        static internal void ListAll()
+        {
+            var cur = head;
+            Console.WriteLine("Current Menus".ToUpper());
             while (cur != null)
             {
                 Console.WriteLine($"{cur.name}: Rp {cur.price:n}");
                 cur = cur.next;
             }
+        }
+
+        static internal double PriceOf(string desc)
+        {
+            var cur = head;
+            while (cur != null)
+            {
+                if (cur.name == desc)
+                {
+                    return cur.price;
+                }
+                cur = cur.next;
+            }
+            throw new ArgumentException($"{desc} is not in the menu");
+        }
+
+        static internal double CostOf(string desc)
+        {
+            var cur = head;
+            while (cur != null)
+            {
+                if (cur.name == desc)
+                {
+                    return cur.cost;
+                }
+                cur = cur.next;
+            }
+            throw new ArgumentException($"{desc} is not in the menu");
         }
     }
 

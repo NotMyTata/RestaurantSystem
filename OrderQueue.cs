@@ -4,7 +4,7 @@ namespace final_project
 {
     internal class OrderQueue
     {
-        private OrderNode head, tail;
+        static private OrderNode head, tail;
 
         internal OrderQueue()
         {
@@ -12,7 +12,19 @@ namespace final_project
             tail = null;
         }
 
-        internal void Enqueue(string name, string description)
+        static internal void validate(string desc)
+        {
+            string[] menus = desc.Split(',');
+            foreach (string menu in menus)
+            {
+                if (!MenuList.Contains(menu))
+                {
+                    throw new InvalidOperationException($"{menu} is not in the menu");
+                }
+            }
+        }
+
+        static internal void Enqueue(string name, string description)
         {
             var newNode = new OrderNode(name, description);
             if (head == null)
@@ -29,11 +41,11 @@ namespace final_project
             Console.WriteLine("-------- Order has been ENQUEUED --------");
         }
 
-        internal OrderNode Dequeue()
+        static internal OrderNode Dequeue()
         {
             if (head == null)
             {
-                return null;
+                throw new InvalidOperationException("Order Queue is empty");
             }
             var returnNode = head;
             head = head.next;
@@ -41,16 +53,16 @@ namespace final_project
             return returnNode;
         }
 
-        internal OrderNode Peek()
+        static internal OrderNode Peek()
         {
             if (head == null)
             {
-                return null;
+                throw new InvalidOperationException("Order Queue is empty"); ;
             }
             return head;
         }
 
-        internal bool isEmpty()
+        static internal bool isEmpty()
         {
             if (head == null)
             {
@@ -59,7 +71,7 @@ namespace final_project
             return false;
         }
 
-        internal void ListAll()
+        static internal void ListAll()
         {
             var cur = head;
             while (cur != null)
