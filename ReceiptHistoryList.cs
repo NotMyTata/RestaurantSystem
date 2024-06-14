@@ -32,14 +32,14 @@ namespace final_project
         static internal void Print(ReceiptNode curReceipt)
         {
             Console.WriteLine(curReceipt.dateTime);
-            Console.WriteLine("-------------------------------------");
-            Console.WriteLine($"Customer Name: {curReceipt.name}");
+            Console.WriteLine("\t-------------------------------------");
+            Console.WriteLine($"\tCustomer Name: {curReceipt.name}");
             for (int i = 0; i < curReceipt.menu.Length; i++)
             {
-                Console.WriteLine($"{curReceipt.menu[i]}: Rp.{curReceipt.menuPrice[i]:n}");
+                Console.WriteLine($"\t{curReceipt.menu[i]}: Rp.{curReceipt.menuPrice[i]:n}");
             }
-            Console.WriteLine("-------------------------------------");
-            Console.WriteLine($"Total Price: Rp.{curReceipt.totalPrice:n}");
+            Console.WriteLine("\t-------------------------------------");
+            Console.WriteLine($"\tTotal Price: Rp.{curReceipt.totalPrice:n}");
             Console.WriteLine("\n");
         }
 
@@ -48,7 +48,7 @@ namespace final_project
             var curr = tail;
             if (curr == null)
             {
-                Console.WriteLine("There is no history");
+                Console.WriteLine("\tThere is no history".ToUpper());
             }
             while (curr != null)
             {
@@ -57,12 +57,26 @@ namespace final_project
             }
         }
 
+        static internal void ListFirstN(int n)
+        {
+            var curr = tail;
+            if (curr == null)
+            {
+                Console.WriteLine("\tThere is no history".ToUpper());
+            }
+            while (curr != null && n-- > 0)
+            {
+                Print(curr);
+                curr = curr.next;
+            }
+        }
+
         static internal void ListLastN(int n)
         {
             var curr = tail;
             if (curr == null)
             {
-                Console.WriteLine("There is no history");
+                Console.WriteLine("\tThere is no history".ToUpper());
             }
             while (curr != null && n-- > 0)
             {
@@ -93,7 +107,7 @@ namespace final_project
 
         internal ReceiptNode(OrderNode node)
         {
-            dateTime = DateTime.Now;
+            dateTime = node.dateTime;
             name = node.name;
             menu = node.description.Split(',');
             menuPrice = new double[menu.Length];
