@@ -12,28 +12,16 @@ namespace final_project
             tail = null;
         }
 
-        static internal bool Validate(string name, string desc)
+        static internal void QueueNewOrder()
         {
-            if (string.IsNullOrEmpty(name))
+            string[] input = new string[2];
+            Console.Write("Customer Name: "); input[0] = Console.ReadLine();
+            Console.WriteLine("[ Use (,) to separate menus and (:) for quantity of each menu ]");
+            Console.Write("Orders: "); input[1] = Console.ReadLine();
+            if (OrderNode.Validate(input[0], input[1]) == true)
             {
-                Console.WriteLine("\tCustomer name is empty".ToUpper());
-                return false;
+                Enqueue(input[0], input[1]);
             }
-            string[] menus = desc.Split(',');
-            foreach (string menu in menus)
-            {
-                if (string.IsNullOrEmpty(menu))
-                {
-                    Console.WriteLine("\tOrder is empty".ToUpper());
-                    return false;
-                }
-                if (!MenuList.Contains(menu))
-                {
-                    Console.WriteLine($"\t{menu} is not in the menu");
-                    return false;
-                }
-            }
-            return true;
         }
 
         static internal void Enqueue(string name, string description)
@@ -50,7 +38,7 @@ namespace final_project
                 newNode.prev = tail;
                 tail = newNode;
             }
-            Console.WriteLine("-------- Order has been ENQUEUED --------");
+            Console.WriteLine("\t------ Order has been ENQUEUED ------");
         }
 
         static internal OrderNode Dequeue()
@@ -62,7 +50,7 @@ namespace final_project
             }
             var returnNode = head;
             head = head.next;
-            Console.WriteLine("-------- Order has been DEQUEUED --------");
+            Console.WriteLine("\t------ Order has been DEQUEUED ------");
             return returnNode;
         }
 
@@ -97,7 +85,7 @@ namespace final_project
                 Console.WriteLine("\tQueue is empty".ToUpper());
                 return;
             }
-            Console.WriteLine($"\t{head.dateTime}\n\tID: {head.id}, Customer Name: {head.name}, Orders: {head.description}");
+            Console.WriteLine($"\t{head.dateTime}\n\tID: {head.id}\n\tCustomer Name: {head.name}\n\tOrders: {head.description}");
         }
     }
 
@@ -117,6 +105,37 @@ namespace final_project
             this.description = description;
             next = null;
             prev = null;
+        }
+
+        static internal bool Validate(string name, string desc)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("\tCustomer name is empty".ToUpper());
+                return false;
+            }
+            string[] menus = desc.Split(',');
+            foreach (string menu in menus)
+            {
+                if (string.IsNullOrEmpty(menu))
+                {
+                    Console.WriteLine("\tOrder is empty".ToUpper());
+                    return false;
+                }
+                string[] temp = menu.Split(':');
+                if (!MenuList.Contains(temp[0]))
+                {
+                    Console.WriteLine($"\t{menu} is not in the menu");
+                    return false;
+                }
+                int QuantityTemp;
+                if (temp.Length == 1 || int.TryParse(temp[1], out QuantityTemp) == false || QuantityTemp <= 0)
+                {
+                    Console.WriteLine("\tQuantity is invalid");
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

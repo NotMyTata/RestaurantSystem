@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Reflection.Metadata.Ecma335;
+using System.Globalization;
 
 namespace final_project
 {
@@ -17,10 +17,10 @@ namespace final_project
 
         static internal void DefaultMenu()
         {
-            List<string> name = new List<string> {"Nasi Goreng", "Ayam Bakar", "Bakso", "Soto Ayam", "Mie Goreng"};
-            List<double> price = new List<double> {15000, 18000, 14000, 16000, 11000};
-            List<double> cost = new List<double> {8000, 10000, 6000, 7000, 4000};
-            for (int i = 0; i < name.Count; i++)
+             string[] name = {"Nasi Goreng", "Ayam Bakar", "Bakso", "Soto Ayam", "Mie Goreng", "Es Teh", "Jus Jeruk"};
+            double[] price = {15000, 18000, 14000, 16000, 11000, 6000, 8000};
+            double[] cost = {8000, 10000, 6000, 7000, 4000, 1000, 3000};
+            for (int i = 0; i < name.Length; i++)
             {
                 Add(name[i], price[i], cost[i]);
             }
@@ -91,6 +91,28 @@ namespace final_project
             return 0;
         }
 
+        static internal void AddNewMenu()
+        {
+            string[] newMenu = new string[3];
+            Console.Write("New menu's name: "); newMenu[0] = Console.ReadLine();
+            Console.Write("New menu's price: "); newMenu[1] = Console.ReadLine();
+            Console.Write("New menu's cost: "); newMenu[2] = Console.ReadLine();
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            newMenu[0] = textInfo.ToTitleCase(newMenu[0].ToLower());
+            if (Validate(newMenu) == true)
+            {
+                Add(newMenu[0], double.Parse(newMenu[1]), double.Parse(newMenu[2]));
+                Console.WriteLine("\tNew Menu has been added".ToUpper());
+            }
+        }
+
+        static internal void RemoveMenu()
+        {
+            string delete;
+            Console.Write("Menu keyword: "); delete = Console.ReadLine();
+            Remove(delete);
+        }
+
         static internal void Remove(string name)
         {
             var curr = head;
@@ -115,16 +137,33 @@ namespace final_project
             Console.WriteLine($"\t{name} is not found");
         }
 
+        static internal MenuNode Find(string menu)
+        {
+            var curr = head;
+            menu = menu.ToLower().Replace(" ", string.Empty);
+            while (curr != null)
+            {
+                if (Compare(curr.name.ToLower().Replace(" ", string.Empty), menu) == 0)
+                {
+                    return curr;
+                }
+                curr = curr.next;
+            }
+            Console.WriteLine($"\t{menu} is not found");
+            return null;
+        }
+
         static internal bool Contains(string menu)
         {
-            var cur = head;
-            while (cur != null)
+            var curr = head;
+            menu = menu.ToLower().Replace(" ", string.Empty);
+            while (curr != null)
             {
-                if (cur.name == menu)
+                if (Compare(curr.name.ToLower().Replace(" ", string.Empty), menu) == 0)
                 {
                     return true;
                 }
-                cur = cur.next;
+                curr = curr.next;
             }
             return false;
         }
@@ -143,29 +182,31 @@ namespace final_project
         static internal double PriceOf(string desc)
         {
             var cur = head;
+            desc = desc.ToLower().Replace(" ", string.Empty);
             while (cur != null)
             {
-                if (cur.name == desc)
+                if (Compare(cur.name.ToLower().Replace(" ", string.Empty), desc) == 0)
                 {
                     return cur.price;
                 }
                 cur = cur.next;
             }
-            throw new ArgumentException($"{desc} is not in the menu");
+            return 0;
         }
 
         static internal double CostOf(string desc)
         {
             var cur = head;
+            desc = desc.ToLower().Replace(" ", string.Empty);
             while (cur != null)
             {
-                if (cur.name == desc)
+                if (Compare(cur.name.ToLower().Replace(" ", string.Empty), desc) == 0)
                 {
                     return cur.cost;
                 }
                 cur = cur.next;
             }
-            throw new ArgumentException($"{desc} is not in the menu");
+            return 0;
         }
 
         static internal bool Validate(string[] newMenu)
@@ -194,7 +235,7 @@ namespace final_project
             }
             if (tempPrice <= minimumPriceCost || tempCost <= minimumPriceCost)
             {
-                Console.WriteLine($"Price or Cost must be above Rp.{minimumPriceCost:n}");
+                Console.WriteLine($"\tPrice or Cost must be above Rp.{minimumPriceCost:n}");
                 return false;
             }
             return true;

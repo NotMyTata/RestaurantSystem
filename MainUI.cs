@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.ConstrainedExecution;
 
 namespace final_project
 {
@@ -44,34 +43,27 @@ namespace final_project
             bool input = int.TryParse(Console.ReadLine(), out command);
             if (input is false)
             {
-                throw new ArgumentException("Input is not an integer");
+                Console.WriteLine("\tInput is not an integer"); return;
             }
             switch (command)
             {
                 case 0: isRunning = false; break;
                 case 1: setNewOrder(); break;
-                case 2: viewCurOrder(); break;
+                case 2: viewOrder(); break;
                 case 3: printReceipt(); break;
                 case 4: viewMenu(); break;
                 case 5: viewRevenue(); break;
                 case 6: viewReceiptHistory(); break;
-                default: throw new ArgumentOutOfRangeException($"{command} is not within the choices");
+                default: Console.WriteLine($"\t{command} is not within the choices"); break;
             }
         }
 
         static void setNewOrder()
         {
-            string[] input = new string[2];
-            Console.Write("Customer Name: "); input[0] = Console.ReadLine();
-            Console.WriteLine("[ Use (,) to separate menus and (:) for quantity ]");
-            Console.Write("Orders: "); input[1] = Console.ReadLine();
-            if (OrderQueue.Validate(input[0], input[1]) == true)
-            {
-                OrderQueue.Enqueue(input[0], input[1]);
-            }
+            OrderQueue.QueueNewOrder();
         }
 
-        static void viewCurOrder()
+        static void viewOrder()
         {
             Console.WriteLine("1. Show current order");
             Console.WriteLine("2. List all order");
@@ -81,18 +73,14 @@ namespace final_project
             int Case;
             if (!int.TryParse(input, out Case))
             {
-                throw new ArgumentException("Input is not an integer");
+                Console.WriteLine("\tInput is not an integer"); return;
             }
             switch (Case)
             {
                 case 0: break;
-                case 1:
-                    OrderQueue.ShowCurrentOrder();
-                    break;
-                case 2:
-                    OrderQueue.ListAll();
-                    break;
-                default: throw new ArgumentOutOfRangeException($"{input} is not within choices");
+                case 1: OrderQueue.ShowCurrentOrder(); break;
+                case 2: OrderQueue.ListAll(); break;
+                default: Console.WriteLine($"\t{input} is not within choices"); break;
             }
         }
         
@@ -119,28 +107,14 @@ namespace final_project
             int Case;
             if (!int.TryParse(input, out Case))
             {
-                throw new ArgumentException("Input is not an integer");
+                Console.WriteLine("\tInput is not an integer"); return;
             }
             switch (Case)
             {
                 case 0: break;
-                case 1:
-                    string[] newMenu= new string[3];
-                    Console.Write("New menu's name: "); newMenu[0] = Console.ReadLine().TrimEnd();
-                    Console.Write("New menu's price: "); newMenu[1] = Console.ReadLine();
-                    Console.Write("New menu's cost: "); newMenu[2] = Console.ReadLine();
-                    if (MenuList.Validate(newMenu) == true)
-                    {
-                        MenuList.Add(newMenu[0], double.Parse(newMenu[1]), double.Parse(newMenu[2]));
-                        Console.WriteLine("\tNew Menu has been added".ToUpper());
-                    }
-                    break;
-                case 2:
-                    string delete;
-                    Console.Write("Menu keyword: "); delete = Console.ReadLine();
-                    MenuList.Remove(delete);
-                    break;
-                default: throw new ArgumentOutOfRangeException($"{input} is not within choices");
+                case 1: MenuList.AddNewMenu(); break;
+                case 2: MenuList.RemoveMenu(); break;
+                default: Console.WriteLine($"\t{input} is not within choices"); break;
             }
         }
 
@@ -160,31 +134,15 @@ namespace final_project
             int Case;
             if (!int.TryParse(input, out Case))
             {
-                throw new ArgumentException("Input is not an integer");
+                Console.WriteLine("\tInput is not an integer"); return;
             }
             switch (Case)
             {
                 case 0: break;
                 case 1: ReceiptHistoryList.ListAll(); break;
-                case 2:
-                    Console.Write("Print how much: ");
-                    input = Console.ReadLine();
-                    if (!int.TryParse(input, out Case))
-                    {
-                        throw new ArgumentException("Input is not an integer");
-                    }
-                    ReceiptHistoryList.ListFirstN(Case);
-                    break;
-                case 3:
-                    Console.Write("Print how much: ");
-                    input = Console.ReadLine();
-                    if (!int.TryParse(input, out Case))
-                    {
-                        throw new ArgumentException("Input is not an integer");
-                    }
-                    ReceiptHistoryList.ListLastN(Case); 
-                    break;
-                default: throw new ArgumentOutOfRangeException($"{input} is not within choices");
+                case 2: ReceiptHistoryList.ListFirstN(); break;
+                case 3: ReceiptHistoryList.ListLastN(); break;
+                default: Console.WriteLine($"\t{input} is not within choices"); break;
             }
         }
     }
