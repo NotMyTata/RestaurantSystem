@@ -18,7 +18,7 @@ namespace final_project
             Console.Write("Customer Name: "); input[0] = Console.ReadLine();
             Console.WriteLine("[ Use (,) to separate menus and (:) for quantity of each menu ]");
             Console.Write("Orders: "); input[1] = Console.ReadLine();
-            if (OrderNode.Validate(input[0], input[1]) == true)
+            if (Validate(input[0], input[1]))
             {
                 Enqueue(input[0], input[1]);
             }
@@ -54,15 +54,6 @@ namespace final_project
             return returnNode;
         }
 
-        static internal bool isEmpty()
-        {
-            if (head == null)
-            {
-                return true;
-            }
-            return false;
-        }
-
         static internal void ListAll()
         {
             if (head == null)
@@ -86,25 +77,6 @@ namespace final_project
                 return;
             }
             Console.WriteLine($"\t{head.dateTime}\n\tID: {head.id}\n\tCustomer Name: {head.name}\n\tOrders: {head.description}");
-        }
-    }
-
-    internal class OrderNode
-    {
-        static int counterId;
-        internal DateTime dateTime;
-        internal int id;
-        internal string name, description;
-        internal OrderNode next, prev;
-
-        internal OrderNode(string name, string description)
-        {
-            dateTime = DateTime.Now;
-            id = ++counterId;
-            this.name = name;
-            this.description = description;
-            next = null;
-            prev = null;
         }
 
         static internal bool Validate(string name, string desc)
@@ -136,6 +108,25 @@ namespace final_project
                 }
             }
             return true;
+        }
+    }
+
+    internal class OrderNode
+    {
+        static int counterId;
+        internal DateTime dateTime;
+        internal int id;
+        internal string name, description;
+        internal OrderNode next, prev;
+
+        internal OrderNode(string name, string description)
+        {
+            dateTime = DateTime.Now;
+            id = ++counterId;
+            this.name = name;
+            this.description = description;
+            next = null;
+            prev = null;
         }
     }
 }

@@ -17,9 +17,9 @@ namespace final_project
 
         static internal void DefaultMenu()
         {
-             string[] name = {"Nasi Goreng", "Ayam Bakar", "Bakso", "Soto Ayam", "Mie Goreng", "Es Teh", "Jus Jeruk"};
-            double[] price = {15000, 18000, 14000, 16000, 11000, 6000, 8000};
-            double[] cost = {8000, 10000, 6000, 7000, 4000, 1000, 3000};
+            string[] name = {"Nasi Goreng", "Ayam Bakar", "Bakso", "Soto Ayam", "Mie Goreng", "Es Teh", "Jus Jeruk", "Air Putih"};
+            double[] price = {15000, 18000, 14000, 16000, 11000, 6000, 8000, 3000};
+            double[] cost = {8000, 10000, 6000, 7000, 4000, 1000, 3000, 500};
             for (int i = 0; i < name.Length; i++)
             {
                 Add(name[i], price[i], cost[i]);
@@ -99,7 +99,7 @@ namespace final_project
             Console.Write("New menu's cost: "); newMenu[2] = Console.ReadLine();
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             newMenu[0] = textInfo.ToTitleCase(newMenu[0].ToLower());
-            if (Validate(newMenu) == true)
+            if (Validate(newMenu))
             {
                 Add(newMenu[0], double.Parse(newMenu[1]), double.Parse(newMenu[2]));
                 Console.WriteLine("\tNew Menu has been added".ToUpper());
@@ -155,15 +155,10 @@ namespace final_project
 
         static internal bool Contains(string menu)
         {
-            var curr = head;
-            menu = menu.ToLower().Replace(" ", string.Empty);
-            while (curr != null)
+            MenuNode temp = Find(menu);
+            if (temp != null)
             {
-                if (Compare(curr.name.ToLower().Replace(" ", string.Empty), menu) == 0)
-                {
-                    return true;
-                }
-                curr = curr.next;
+                return true;
             }
             return false;
         }
@@ -181,30 +176,20 @@ namespace final_project
 
         static internal double PriceOf(string desc)
         {
-            var cur = head;
-            desc = desc.ToLower().Replace(" ", string.Empty);
-            while (cur != null)
+            MenuNode temp = Find(desc);
+            if (temp != null)
             {
-                if (Compare(cur.name.ToLower().Replace(" ", string.Empty), desc) == 0)
-                {
-                    return cur.price;
-                }
-                cur = cur.next;
+                return temp.price;
             }
             return 0;
         }
 
         static internal double CostOf(string desc)
         {
-            var cur = head;
-            desc = desc.ToLower().Replace(" ", string.Empty);
-            while (cur != null)
+            MenuNode temp = Find(desc);
+            if (temp != null)
             {
-                if (Compare(cur.name.ToLower().Replace(" ", string.Empty), desc) == 0)
-                {
-                    return cur.cost;
-                }
-                cur = cur.next;
+                return temp.cost;
             }
             return 0;
         }

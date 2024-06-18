@@ -120,6 +120,7 @@ namespace final_project
             menuPrice = new double[menu.Length];
             menuCost = new double[menu.Length];
             totalPrice = 0; totalCost = 0;
+
             for (int i = 0; i < menu.Length; i++)
             {
                 string[] temp = menu[i].Split(':');
@@ -130,6 +131,7 @@ namespace final_project
                 totalPrice += menuPrice[i]*menuQuantity[i];
                 totalCost += menuCost[i]*menuQuantity[i];
             }
+
             ReceiptHistoryList.AddRevenue(totalPrice, totalCost);
             this.next = null;
             this.prev = null;
